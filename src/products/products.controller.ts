@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { ProductEntity } from 'src/entities/product.entity';
+import { ProductEntity } from '../entities/product.entity';
 import { DeepPartial } from 'typeorm';
 import { AuthGuard } from 'src/middlewares/auth.middleware';
 
