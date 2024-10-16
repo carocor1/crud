@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/comm
 import { ProductsService } from './products.service';
 import { ProductEntity } from '../entities/product.entity';
 import { DeepPartial } from 'typeorm';
-import { AuthGuard } from 'src/middlewares/auth.middleware';
+import { AuthGuard } from '../middlewares/auth.middleware';
 
 @Controller('products')
 export class ProductsController {

@@ -1,5 +1,5 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { ProductTypeEntity } from 'src/entities/productType.entity';
+import { ProductTypeEntity } from '../entities/productType.entity';
 import { DeepPartial } from 'typeorm';
 
 @Injectable()
@@ -24,12 +24,12 @@ export class ProductTypesService {
         }
     }
 
-    async actualizarProductType(param: {id:number}, product_type: DeepPartial<ProductTypeEntity>): Promise <ProductTypeEntity>{
+    async actualizarProductType(param: {id: number}, product_type: DeepPartial<ProductTypeEntity>): Promise<ProductTypeEntity> {
         try {
-            this.repository.update(param.id, product_type);
-            return this.getProductType(param);
-        } catch (error){
-            throw new HttpException('Error en la actualizacion del producto', 505);
+            await this.repository.update(param.id, product_type);
+            return await this.getProductType(param);
+        } catch (error) {
+         throw new HttpException('Error en la actualización del producto', 500);
         }
     }
 
