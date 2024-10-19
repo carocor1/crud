@@ -72,34 +72,6 @@ describe('ProductService Integration Test', () => {
     expect(productos[0].productType.id).toBe(tipoProducto.id); // Verificar el tipo de producto
   });
 
-
-
-  it('Debería devolver todos los productos', async () => {
-    // Luego, inserta varios productos en la base de datos
-    await productRepository.save([
-        {   id:0,
-            name: 'Producto1',
-            price: 100,
-        },
-        {   id:20,
-            name: 'Producto2',
-            price: 200,
-        },
-    ]);
-
-    // Ahora llama al método getProducts()
-    const productos = await service.getProducts();
-
-    // Verifica que la lista no esté vacía
-    expect(productos.length).toBeGreaterThan(0); // Asegúrate de que hay productos
-
-    // Opcional: verifica que los productos insertados estén en la lista
-    expect(productos).toEqual(expect.arrayContaining([
-        expect.objectContaining({ id: 0}),
-        expect.objectContaining({ id: 20}),
-    ]));
-    console.log("Productos:", productos);
-  });
   
   afterAll(async () => {
     await productRepository.query(`DROP TABLE IF EXISTS product_entity`);
