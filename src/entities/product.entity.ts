@@ -2,9 +2,9 @@ import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "t
 import { ProductTypeEntity } from "./productType.entity";
 
 @Entity('products')
-export class ProductEntity extends BaseEntity{
+export class ProductEntity extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id:number;
+    id: number;
 
     @Column()
     name: string;
@@ -15,3 +15,4 @@ export class ProductEntity extends BaseEntity{
     @ManyToOne(() => ProductTypeEntity, (productType) => productType.products)
     productType: ProductTypeEntity;
 }
+

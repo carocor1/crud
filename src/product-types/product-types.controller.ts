@@ -28,3 +28,4 @@ export class ProductTypesController {
         return await this.service.getProductTypes();
     }
 }
+
