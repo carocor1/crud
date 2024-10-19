@@ -1,5 +1,5 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { ProductTypeEntity } from 'src/entities/productType.entity';
+import { ProductTypeEntity } from '../entities/productType.entity';
 import { DeepPartial } from 'typeorm';
 
 @Injectable()

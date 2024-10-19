@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ProductTypesService } from './product-types.service';
-import { ProductTypeEntity } from 'src/entities/productType.entity';
+import { ProductTypeEntity } from '../entities/productType.entity';
 import { DeepPartial } from 'typeorm';
 
 

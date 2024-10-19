@@ -2,10 +2,13 @@ import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/comm
 import { ProductsService } from './products.service';
 import { ProductEntity } from '../entities/product.entity';
 import { DeepPartial } from 'typeorm';
-import { AuthGuard } from 'src/middlewares/auth.middleware';
+import { AuthGuard } from '../middlewares/auth.middleware';
 
 @Controller('products')
 export class ProductsController {
+    static getProducts() {
+      throw new Error("Method not implemented.");
+    }
     constructor (private service: ProductsService){}
     
     @UseGuards(new AuthGuard(1))
@@ -25,7 +28,7 @@ export class ProductsController {
         return await this.service.actualizarProduct(param, product);
     }
 
-    @UseGuards(new AuthGuard(3))
+    //@UseGuards(new AuthGuard(3))
     @Get()
     async getProducts(): Promise <ProductEntity[]> {
         return await this.service.getProducts();
